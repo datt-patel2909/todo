@@ -12,21 +12,21 @@ app.use(express.static('./public'))
 app.use(express.json())
 app.use('/api/v1/todo', todo)
 
+app.get('/health', (req,res)=>res.send('OK'));
 app.use((req, res) => {
    res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
 });
 
 
 const port = process.env.PORT || 3000
-const start = async () => {
-   try {
-      await connectDB(process.env.MONGO_URI)
-      app.listen(port, console.log(`Server Listenng on port ${port}...`)
-      )
-   } catch (error) {
-      console.log(error)
-   }
-}
-start()
+
+
+app.listen(port, "0.0.0.0", () => {
+   console.log(`Server Listening on port ${port}...`);
+});
+
+connectDB(process.env.MONGO_URI)
+   .then(() => console.log("MongoDB Connected"))
+   .catch(err => console.error("MongoDB Error:", err));
 
 
