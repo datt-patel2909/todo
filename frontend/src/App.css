@@ -1,0 +1,125 @@
+.app-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeIn 0.8s var(--transition-smooth) forwards;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  text-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.todos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2500px;
+  width: 100%;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+
+.book {
+  position: relative;
+  width: 400px;
+  height: 550px;
+  transform-style: preserve-3d;
+  background-color: transparent;
+  /* Bind book cover */
+  box-shadow: -15px 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 4px 16px 16px 4px;
+}
+
+@media (max-width: 500px) {
+  .book {
+    width: 90vw;
+    height: 70vh;
+  }
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 20px;
+  background: var(--glass-bg);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--glass-border);
+}
+
+.error {
+  color: var(--danger-color);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-style: italic;
+  background: var(--glass-bg);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--glass-border);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .glass-panel {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

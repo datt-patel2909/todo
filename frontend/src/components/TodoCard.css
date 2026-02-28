@@ -1,0 +1,164 @@
+.todo-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.todo-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.todo-card.completed {
+    opacity: 0.7;
+}
+
+.todo-card.completed .todo-name {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.todo-card.completed .todo-desc {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Checkbox Styling */
+.checkbox {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--text-secondary);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: all var(--transition-fast);
+    margin-top: 2px;
+}
+
+.checkbox:hover {
+    border-color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.checkbox.checked {
+    background: var(--success-color);
+    border-color: var(--success-color);
+}
+
+/* Content */
+.todo-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.todo-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    transition: color var(--transition-fast);
+}
+
+.todo-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Edit Mode */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.edit-input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+    padding: 8px 12px;
+    font-family: var(--font-family);
+    transition: border-color var(--transition-fast);
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.name-input {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.desc-input {
+    font-size: 0.9rem;
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+@media (max-width: 600px) {
+    .actions {
+        opacity: 1;
+    }
+}
+
+.todo-card:hover .actions {
+    opacity: 1;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger-hover);
+}
+
+.action-btn.success:hover {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success-color);
+}
