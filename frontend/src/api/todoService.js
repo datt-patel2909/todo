@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/v1/todo';
+const API_URL = '/api/v1/todo';
 
 const apiClient = axios.create({
     baseURL: API_URL,
